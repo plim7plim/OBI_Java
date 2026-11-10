@@ -1,6 +1,6 @@
 # OBI em Java — 4 dias
 
-Comece por [Exercícios](treino/exercicios.md). Tente cada questão antes de abrir o gabarito.
+Consulte a [apostila de Java](treino/java.md) para aprender declarações, entrada e saída, laços, vetores, strings, métodos e coleções. Depois pratique com os [exercícios](treino/exercicios.md). Tente cada questão antes de abrir o gabarito.
 
 | Dia | Faça | Meta |
 |---|---|---|
