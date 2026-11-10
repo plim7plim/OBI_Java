@@ -7,7 +7,7 @@ Consulte a [apostila de Java](treino/java.md) para aprender declarações, entra
 | 1 | Recordes e Maior sequência | Ler a entrada e resolver cada questão em uma passada |
 | 2 | Mediana e Frequências | Praticar ordenação, vetores e contagem |
 | 3 | Somas de intervalos | Comparar uma solução direta com soma de prefixos |
-| 4 | Simulado com prova antiga do seu nível | Usar o tempo do caderno e refazer uma questão que ficou incompleta |
+| 4 | Maratona 2022: problemas I, A, J, E, D e F | Resolver problemas reais de prova, do mais fácil ao mais difícil |
 
 Para o simulado, escolha um caderno em https://olimpiada.ic.unicamp.br/pratique/.
 

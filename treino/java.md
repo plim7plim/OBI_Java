@@ -1,10 +1,12 @@
-# Java para a OBI
+# Java para a OBI e a Maratona
 
-Use esta apostila junto com os [exercícios](exercicios.md). No primeiro dia, pratique as seções 1 a 4. No segundo, vá até a seção 7. No terceiro, use a seção 8 para somas de intervalos. Consulte a seção 9 antes de submeter.
+Use esta apostila junto com os [exercícios](exercicios.md). Estude as seções 1 a 8 e consulte a seção 9 antes de submeter.
 
 ## 1. Estrutura de um programa
 
-Salve este exemplo como `Main.java` para rodar localmente. Para submeter, use o nome de arquivo e de classe indicado na questão.
+Salve este exemplo como `Main.java` para rodar localmente.
+
+> **Na Maratona:** o arquivo tem o nome do problema. Problema A → arquivo `A.java` com `public class A`.
 
 ```java
 import java.util.Scanner;
@@ -12,9 +14,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        int a = entrada.nextInt();
-        int b = entrada.nextInt();
-        System.out.println(a + b);
+        int a = entrada.nextInt();   // a = 3
+        int b = entrada.nextInt();   // b = 8
+        System.out.println(a + b);   // imprime 11
     }
 }
 ```
@@ -38,7 +40,7 @@ javac Main.java
 O padrão é `tipo nome = valor;`. Declare uma vez e use o nome para ler ou alterar o valor.
 
 ```java
-int pontos = 10;
+int pontos = 10;          // pontos = 10
 pontos = pontos + 5;      // pontos agora vale 15
 pontos += 2;             // 17
 pontos++;                // 18
@@ -71,7 +73,7 @@ int quociente = 7 / 2;           // 3
 double metade = 7 / 2.0;         // 3.5
 int resto = 7 % 2;               // 1
 int truncado = (int) 3.9;        // 3
-int numero = Integer.parseInt("42");
+int numero = Integer.parseInt("42"); // 42
 long produto = 1L * 100_000 * 100_000; // 10.000.000.000
 int maior = Math.max(12, 8);     // 12
 ```
@@ -84,10 +86,10 @@ Adicione `import java.util.Scanner;` no topo e crie um único leitor dentro de `
 
 ```java
 Scanner entrada = new Scanner(System.in);
-int idade = entrada.nextInt();
-long populacao = entrada.nextLong();
-String palavra = entrada.next();
-char inicial = palavra.charAt(0);
+int idade = entrada.nextInt();        // 15
+long populacao = entrada.nextLong();  // 3000000000
+String palavra = entrada.next();      // "Ana"
+char inicial = palavra.charAt(0);     // 'A'
 ```
 
 A entrada `15 3000000000 Ana` fornece `15`, `3000000000`, `"Ana"` e `'A'`. Esses métodos leem tokens separados por espaços, tabulações ou quebras de linha.
@@ -103,12 +105,12 @@ A entrada `15 3000000000 Ana` fornece `15`, `3000000000`, `"Ana"` e `'A'`. Esses
 
 Para decimais com ponto, adicione `import java.util.Locale;` e chame `entrada.useLocale(Locale.US);` antes de ler.
 
-Se o enunciado dá um inteiro sozinho na primeira linha e um texto na segunda:
+Se o enunciado dá um inteiro sozinho na primeira linha e um texto na segunda, como `2` e `Ola mundo`:
 
 ```java
-int n = entrada.nextInt();
-entrada.nextLine();                // consome o resto da primeira linha
-String frase = entrada.nextLine(); // lê a segunda linha com espaços
+int n = entrada.nextInt();         // 2
+entrada.nextLine();                // devolve "", o resto da primeira linha
+String frase = entrada.nextLine(); // "Ola mundo", a segunda linha com espaços
 ```
 
 Se o texto estiver na mesma linha do inteiro, a primeira chamada a `nextLine()` já devolve esse texto, incluindo o espaço separador.
@@ -129,7 +131,7 @@ Em uma submissão, imprima só o que o enunciado pede. Para muitas respostas, us
 ```java
 int nota = 7;
 if (nota >= 7) {
-    System.out.println("Aprovado");
+    System.out.println("Aprovado");    // este ramo executa, pois 7 >= 7
 } else if (nota >= 5) {
     System.out.println("Recuperacao");
 } else {
@@ -140,13 +142,15 @@ if (nota >= 7) {
 ```java
 int soma = 0;
 for (int i = 1; i <= 5; i++) { // início, condição, avanço
-    soma += i;
+    soma += i;                 // soma: 1, 3, 6, 10, 15
 }
+// soma = 15
 
 int faltam = 3;
 while (faltam > 0) {
-    faltam--;
+    faltam--;                  // faltam: 2, 1, 0
 }
+// faltam = 0
 
 for (int i = 0; i < 10; i++) {
     if (i == 8) {
@@ -165,30 +169,30 @@ Em `a && b`, Java só avalia `b` se `a` for verdadeiro. Isso permite escrever `i
 
 ```java
 int[] v = new int[3];  // começa como {0, 0, 0}
-v[0] = 9;
-int primeiro = v[0];
-int ultimo = v[v.length - 1]; // se o vetor tiver pelo menos um elemento
+v[0] = 9;              // v = {9, 0, 0}
+int primeiro = v[0];   // 9
+int ultimo = v[v.length - 1]; // 0; exige pelo menos um elemento
 
 int[] dados = {9, -2, 4};
 for (int i = 0; i < dados.length; i++) {
-    System.out.println(dados[i]);
+    System.out.println(dados[i]); // i = 0, 1, 2 imprime 9, -2, 4
 }
 for (int valor : dados) { // quando você só precisa do valor
-    System.out.println(valor);
+    System.out.println(valor);    // valor = 9, -2, 4
 }
 ```
 
 ### Ler N números e guardar no vetor
 
 ```java
-int n = entrada.nextInt();
-int[] valores = new int[n];
+int n = entrada.nextInt();        // 3
+int[] valores = new int[n];       // [0, 0, 0]
 for (int i = 0; i < n; i++) {
-    valores[i] = entrada.nextInt();
+    valores[i] = entrada.nextInt(); // [8, 0, 0], [8, 4, 0], [8, 4, 9]
 }
-int primeiraPosicao = valores[0]; // quando n > 0
+int primeiraPosicao = valores[0]; // 8; exige n > 0
 int posicaoDoEnunciado = 2;
-int valorNaPosicao = valores[posicaoDoEnunciado - 1]; // quando n >= 2
+int valorNaPosicao = valores[posicaoDoEnunciado - 1]; // valores[1] = 4; exige n >= 2
 ```
 
 Se a entrada for `3 8 4 9`, o vetor fica `[8, 4, 9]` e o valor da posição 2 do enunciado é `4`.
@@ -196,12 +200,14 @@ Se a entrada for `3 8 4 9`, o vetor fica `[8, 4, 9]` e o valor da posição 2 do
 Para ler uma matriz com `linhas` e `colunas` já conhecidas:
 
 ```java
+int linhas = 2, colunas = 3;
 int[][] grade = new int[linhas][colunas];
 for (int i = 0; i < linhas; i++) {
     for (int j = 0; j < colunas; j++) {
         grade[i][j] = entrada.nextInt();
     }
 }
+// Com a entrada 1 2 3 4 5 6: grade = {{1, 2, 3}, {4, 5, 6}} e grade[1][0] = 4
 ```
 
 ```java
@@ -209,8 +215,8 @@ String texto = "banana";
 int tamanho = texto.length();     // 6
 char letra = texto.charAt(0);      // 'b'
 String pedaco = texto.substring(1, 4); // "ana", fim excluído
-boolean igual = texto.equals("banana");
-boolean temAna = texto.contains("ana");
+boolean igual = texto.equals("banana");  // true
+boolean temAna = texto.contains("ana");  // true
 int posicao = texto.indexOf('n');  // 2; devolve -1 se não encontrar
 ```
 
@@ -232,7 +238,7 @@ static int contarPares(int[] valores) {
 }
 ```
 
-No `main`, chame com `int resposta = contarPares(new int[]{2, 7, 4});`. O tipo antes do nome é o tipo retornado. Um método `void` executa ações sem retornar um valor. Se um método alterar uma posição do vetor recebido, o chamador verá essa alteração.
+No `main`, chame com `int resposta = contarPares(new int[]{2, 7, 4});`. Dentro do método, `quantidade` passa por 1, 1 e 2, então `resposta` vale `2`. O tipo antes do nome é o tipo retornado. Um método `void` executa ações sem retornar um valor. Se um método alterar uma posição do vetor recebido, o chamador verá essa alteração.
 
 ## 7. Biblioteca que vale decorar
 
@@ -245,34 +251,34 @@ int indice = Arrays.binarySearch(v, 4);    // 1; negativo se ausente
 Arrays.fill(v, -1);                        // {-1, -1, -1}
 
 ArrayList<Integer> lista = new ArrayList<>();
-lista.add(10);
-lista.add(20);
+lista.add(10);                             // [10]
+lista.add(20);                             // [10, 20]
 int item = lista.get(0);                   // 10
-lista.set(0, 30);
-lista.sort(null);                          // ordem crescente
+lista.set(0, 30);                          // [30, 20]
+lista.sort(null);                          // [20, 30], ordem crescente
 
 HashSet<Integer> vistos = new HashSet<>();
-vistos.add(8);
-boolean repetido = vistos.contains(8);
+vistos.add(8);                             // {8}
+boolean repetido = vistos.contains(8);     // true
 
 HashMap<Integer, Integer> frequencia = new HashMap<>();
 int valor = 8;
-frequencia.put(valor, frequencia.getOrDefault(valor, 0) + 1);
+frequencia.put(valor, frequencia.getOrDefault(valor, 0) + 1); // {8=1}
 
 ArrayDeque<Integer> fila = new ArrayDeque<>();
-fila.addLast(10);
-fila.addLast(20);
-int primeiro = fila.removeFirst();         // 10
+fila.addLast(10);                          // [10]
+fila.addLast(20);                          // [10, 20]
+int primeiro = fila.removeFirst();         // 10; fila = [20]
 
 ArrayDeque<Integer> pilha = new ArrayDeque<>();
-pilha.push(10);
-pilha.push(20);
-int topo = pilha.pop();                    // 20
+pilha.push(10);                            // [10]
+pilha.push(20);                            // [20, 10], topo à esquerda
+int topo = pilha.pop();                    // 20; pilha = [10]
 
 PriorityQueue<Integer> menores = new PriorityQueue<>();
 menores.add(20);
 menores.add(10);
-int menor = menores.remove();              // 10
+int menor = menores.remove();              // 10; resta 20
 ```
 
 Use `isEmpty()` antes de remover se a coleção puder estar vazia. Para desempatar, faça a comparação explicitamente. `HashMap` e `HashSet` não garantem a ordem de iteração.
@@ -290,11 +296,12 @@ Use `isEmpty()` antes de remover se a coleção puder estar vazia. Para desempat
 Com N = Q = 100.000, somar todos os valores de cada consulta pode chegar a 10 bilhões de operações. Para uma consulta com posições de 1 a N, use:
 
 ```java
-long[] prefixo = new long[n + 1];
+long[] prefixo = new long[n + 1];  // n = 3: [0, 0, 0, 0]
 for (int i = 1; i <= n; i++) {
-    prefixo[i] = prefixo[i - 1] + entrada.nextInt();
+    prefixo[i] = prefixo[i - 1] + entrada.nextInt(); // lê 2, -1, 4
 }
-long soma = prefixo[r] - prefixo[l - 1];
+// prefixo = [0, 2, 1, 5]
+long soma = prefixo[r] - prefixo[l - 1]; // l = 2, r = 3: 5 - 2 = 3
 ```
 
 `prefixo[0]` vale zero. Em `[2, -1, 4]`, os prefixos são `[0, 2, 1, 5]`. A soma de 2 até 3 é `5 - 2 = 3`. Veja o [programa completo com leitura rápida](../solucoes/SomasIntervalos.java).
