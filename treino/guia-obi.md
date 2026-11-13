@@ -76,9 +76,9 @@ O que fazer com isso:
 ## 5. Tempo e memória
 
 - A solução também precisa ser rápida. O teste do ambiente de prova usa limite de 1 segundo e 1 GB de memória.
-- Olhe o maior N nas **Restrições** e confira na seção 20 da apostila se o seu custo cabe.
-- Com entrada grande, leia com `BufferedReader` e imprima com `StringBuilder` (seção 9 da apostila).
-- Se a soma ou o produto puder passar de 2 bilhões, use `long` (seção 11 da apostila).
+- Olhe o maior N nas **Restrições** e confira na [seção 20 da apostila](java.md#20-quanto-cabe-no-tempo) se o seu custo cabe.
+- Com entrada grande, leia com `BufferedReader` e imprima com `StringBuilder` ([seção 9 da apostila](java.md#9-entrada-grande)).
+- Se a soma ou o produto puder passar de 2 bilhões, use `long` ([seção 11 da apostila](java.md#11-números-grandes-e-contas-úteis)).
 
 ## 6. O ambiente de prova
 
@@ -106,7 +106,7 @@ Se a sua escola usar o editor online da OBI, ele tem três botões:
 7. **Travou por 20 minutos:** troque de tarefa. Volte no fim com a cabeça fresca.
 8. **Últimos 10 minutos:** não comece nada novo. Confira se a melhor versão de cada tarefa foi submetida.
 
-Quando a resposta sai errada, confira nesta ordem: nome da classe, formato da saída, posições que começam em 1 no enunciado e em 0 no vetor, empates, `int` que deveria ser `long`. A tabela de sintomas está na seção 21 da apostila.
+Quando a resposta sai errada, confira nesta ordem: nome da classe, formato da saída, posições que começam em 1 no enunciado e em 0 no vetor, empates, `int` que deveria ser `long`. A tabela de sintomas está na [seção 21 da apostila](java.md#21-antes-de-submeter).
 
 ## 8. Como treinar na reta final
 
@@ -114,7 +114,7 @@ Quando a resposta sai errada, confira nesta ordem: nome da classe, formato da sa
 - Faça pelo menos uma prova inteira com cronômetro, sem apostila e sem Internet, com a duração da sua fase.
 - Depois de cada tarefa, anote a ideia, o custo e o caso que você esqueceu de testar.
 - Treine sempre com o nome de arquivo e de classe da tarefa, em minúsculas, para virar hábito.
-- Refaça de memória o modelo de leitura rápida da seção 9 da apostila até sair sem olhar.
+- Refaça de memória o modelo de leitura rápida da [seção 9 da apostila](java.md#9-entrada-grande) até sair sem olhar.
 
 ## 9. Na véspera
 
